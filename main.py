@@ -3,10 +3,10 @@ from flask import Flask, send_from_directory
 import telebot
 from telebot.types import InlineKeyboardMarkup, InlineKeyboardButton, WebAppInfo
 
-BOT_TOKEN = os.environ.get("BOT_TOKEN")
+BOT_TOKEN = os.environ.get("8757151441:AAF3ob4wrTwlfOWGi-QHP-u6er9qlr_0Jz8")
 WEB_APP_URL = os.environ.get("WEB_APP_URL")
 
-bot = telebot.TeleBot(BOT_TOKEN)
+bot = telebot.TeleBot(8757151441:AAF3ob4wrTwlfOWGi-QHP-u6er9qlr_0Jz8)
 app = Flask(__name__)
 
 @app.route('/')
