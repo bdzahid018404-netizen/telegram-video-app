@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Telegram Video App</title>
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <style>
+        body { font-family: Arial, sans-serif; background: #121212; color: white; text-align: center; margin: 0; padding: 20px; }
+        video { width: 100%; max-width: 500px; border-radius: 10px; }
+        .ad-box { background: #222; padding: 15px; margin-top: 15px; border-radius: 8px; border: 1px solid #444; }
+        button { background: #0088cc; color: white; border: none; padding: 10px 20px; font-size: 16px; border-radius: 5px; cursor: pointer; margin-top: 10px; }
+    </style>
+</head>
+<body>
+    <h2>🎥 Video Player</h2>
+    <video id="myVideo" controls>
+        <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+    </video>
+    <div class="ad-box" id="adContainer" style="display:none;">
+        <h3>⚠️ Ad Break</h3>
+        <p>ভিডিওটি দেখতে বিজ্ঞাপনটি সম্পন্ন করুন।</p>
+        <button onclick="resumeVideo()">Continue Watching</button>
+    </div>
+    <script>
+        const video = document.getElementById('myVideo');
+        const adContainer = document.getElementById('adContainer');
+        let adTriggered = false;
+
+        video.addEventListener('timeupdate', function() {
+            if (video.currentTime >= 20 && !adTriggered) {
+                video.pause();
+                adTriggered = true;
+                adContainer.style.display = 'block';
+            }
+        });
+
+        function resumeVideo() {
+            adContainer.style.display = 'none';
+            video.play();
+        }
+        Telegram.WebApp.ready();
+    </script>
+</body>
+</html>
